@@ -12,8 +12,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #bbefce;outline-offset:5p
 .brand svg{width:24px;height:24px}
 .open-app{font-size:13px;color:#fffd;display:flex;align-items:center;gap:12px;transition:color .2s}
 .open-app:hover{color:#bbefce}
-main{position:fixed;z-index:2;inset:0;display:grid;place-items:center;padding:100px 32px}
-.install{position:relative;width:min(100%,1000px);text-align:center}
+main{position:fixed;z-index:2;inset:0;display:grid;grid-template-columns:minmax(0,1fr);place-items:center;padding:100px 32px}
+.install{position:relative;min-width:0;width:min(100%,1000px);text-align:center}
 .eyebrow{margin:0 0 20px;font-size:10px;letter-spacing:2px;font-weight:550;color:#ffffffe0;text-shadow:0 1px 12px #0004}
 h1{margin:0 0 32px;font-size:clamp(28px,4.2vw,52px);font-weight:450;letter-spacing:-1.9px;line-height:1.14;text-shadow:0 2px 25px #0003}
 .command-panel{width:max-content;max-width:100%;margin-inline:auto;text-align:left;background:rgba(15,21,18,.84);border:1px solid #ffffff26;border-radius:11px;padding:12px 15px;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 16px 70px #0002}

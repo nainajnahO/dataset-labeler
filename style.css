@@ -24,7 +24,7 @@ h1{margin:0 0 32px;font-size:clamp(28px,4.2vw,52px);font-weight:450;letter-spaci
 .command-row{display:flex;align-items:center;gap:12px;margin-top:9px;min-width:0}
 .prompt{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;color:#9fa9a2;flex:none}
 .command-row code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;font-weight:400;letter-spacing:-.2px;line-height:1.7;white-space:normal;overflow-wrap:anywhere;text-align:left;min-width:0;color:#f0f5f2}
-#copy-command{margin-left:12px;display:grid;place-items:center;width:30px;height:30px;flex:none;padding:0;border:1px solid #ffffff18;border-radius:6px;background:#ffffff08;color:#c6cec9;transition:background .15s,border-color .15s,color .15s}
+#copy-command{margin-left:13px;display:grid;place-items:center;width:30px;height:30px;flex:none;padding:0;border:1px solid #ffffff18;border-radius:6px;background:#ffffff08;color:#c6cec9;transition:background .15s,border-color .15s,color .15s}
 #copy-command:hover{background:#ffffff16;border-color:#ffffff32;color:#fff}
 .check-icon{display:none}
 #copy-command.copied{color:#bbefce;background:#bbefce12;border-color:#bbefce30}

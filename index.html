@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111714">
+  <meta name="description" content="Install Dataset Labeler. One command, then sign in and work with your team and AI agents.">
+  <title>Dataset Labeler — Install</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <video class="background" autoplay muted loop playsinline preload="auto" poster="./assets/poster.jpg" aria-hidden="true" tabindex="-1">
+    <source src="./assets/background.mp4" type="video/mp4">
+  </video>
+  <div class="shade" aria-hidden="true"></div>
+
+  <header class="header">
+    <a class="brand" href="./" aria-label="Dataset Labeler home">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><rect x="8" y="8" width="8" height="8" rx="1.5" fill="currentColor" opacity=".7"/></svg>
+      <span>Dataset Labeler</span>
+    </a>
+    <a class="open-app" href="https://dataset-labeler.ohanjanian-labeler.workers.dev">Open app <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="install" aria-label="Install Dataset Labeler">
+      <p class="eyebrow">YOUR TERMINAL. YOUR DATASETS.</p>
+      <h1>Start with one command.</h1>
+      <div class="command-panel">
+        <div class="command-label"><span class="status-dot" aria-hidden="true"></span>INSTALL <span class="platform">macOS &amp; Linux</span></div>
+        <div class="command-row">
+          <span class="prompt" aria-hidden="true">$</span>
+          <code id="install-command">curl -fsSL https://dataset-labeler.ohanjanian-labeler.workers.dev/cli/install.sh | bash</code>
+          <button id="copy-command" type="button" aria-label="Copy installation command" title="Copy command">
+            <svg class="copy-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <p class="next-step">Then open a new terminal and run <code>dataset-labeler login</code>.</p>
+      <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>
+    <span>Built for your team. Ready for your agents.</span>
+    <button id="toggle-video" type="button" aria-label="Pause background video" title="Pause background video">
+      <svg class="pause-icon" width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="4" y="3" width="2.5" height="10" rx=".7"/><rect x="9.5" y="3" width="2.5" height="10" rx=".7"/></svg>
+      <svg class="play-icon" width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m5 3 8 5-8 5z"/></svg>
+      <span id="motion-label">Pause video</span>
+    </button>
+  </footer>
+</body>
+</html>

@@ -8,4 +8,4 @@ The background is the owner-provided “My Movie.mp4” from Downloads, exported
 
 Publish the `main` branch, root folder, using GitHub Pages. For a local preview: `python3 -m http.server 5188 --bind 127.0.0.1`.
 
-A subtle grayscale grain layer sits above the video and below the page content. It uses a local SVG texture and remains static as the video plays.
+The static grain matches the liquid-flow background in [Forskapong](https://github.com/nainajnahO/forskapong/blob/main/src/components/common/StaticNoise.tsx): a 450×450 random texture of transparent and half-transparent white pixels, tiled at 300px with pixelated rendering, overlay blending, and 30% opacity. The texture is generated once when the page loads and sits above the video and below the content.

@@ -6,6 +6,23 @@ const motionButton = document.querySelector('#toggle-video');
 const motionLabel = document.querySelector('#motion-label');
 let copyTimer;
 
+// Match Forskapong's StaticNoise overlay over the liquid-flow background.
+const grain = document.querySelector('.grain');
+const noiseCanvas = document.createElement('canvas');
+noiseCanvas.width = noiseCanvas.height = 450;
+const noiseContext = noiseCanvas.getContext('2d');
+if (noiseContext) {
+  const noise = noiseContext.createImageData(450, 450);
+  for (let i = 0; i < noise.data.length; i += 4) {
+    if (Math.random() <= 0.5) {
+      noise.data[i] = noise.data[i + 1] = noise.data[i + 2] = 255;
+      noise.data[i + 3] = 128;
+    }
+  }
+  noiseContext.putImageData(noise, 0, 0);
+  grain.style.backgroundImage = `url(${noiseCanvas.toDataURL()})`;
+}
+
 copyButton.addEventListener('click', async () => {
   const text = command.textContent.trim();
   try {

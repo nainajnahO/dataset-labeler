@@ -55,9 +55,7 @@ function updateMotionControl() {
 }
 video.addEventListener('play', updateMotionControl);
 video.addEventListener('pause', updateMotionControl);
-let userPaused = false;
 motionButton.addEventListener('click', async () => {
-  userPaused = !video.paused;
   if (video.paused) {
     try { await video.play(); } catch { updateMotionControl(); }
   } else {
@@ -65,15 +63,7 @@ motionButton.addEventListener('click', async () => {
   }
 });
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-// Chrome pauses muted video in pages loaded out of sight (background tab,
-// hover prerender, hidden window) and rejects play() there, so start
-// playback only once the page is actually on screen.
-function playWhenVisible() {
-  if (document.visibilityState !== 'visible' || userPaused || reducedMotion.matches || !video.paused) return;
-  video.play().catch(updateMotionControl);
-}
-document.addEventListener('visibilitychange', playWhenVisible);
 if (reducedMotion.matches) video.pause();
-else playWhenVisible();
+else video.play().catch(updateMotionControl);
 reducedMotion.addEventListener('change', event => { if (event.matches) video.pause(); });
 updateMotionControl();

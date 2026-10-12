@@ -63,7 +63,20 @@ motionButton.addEventListener('click', async () => {
   }
 });
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-if (reducedMotion.matches) video.pause();
-else video.play().catch(updateMotionControl);
+function startVideo() {
+  if (reducedMotion.matches) video.pause();
+  else video.play().catch(updateMotionControl);
+}
+// Chrome's address-bar prerender loads the page out of sight, where it pauses
+// muted video and leaves it paused when the page is shown. Once the first
+// frame is on screen, reload the video so it starts like a normal visit.
+if (document.prerendering) {
+  document.addEventListener('prerenderingchange', () => requestAnimationFrame(() => {
+    video.load();
+    startVideo();
+  }), { once: true });
+} else {
+  startVideo();
+}
 reducedMotion.addEventListener('change', event => { if (event.matches) video.pause(); });
 updateMotionControl();

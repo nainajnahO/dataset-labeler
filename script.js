@@ -67,14 +67,19 @@ function startVideo() {
   if (reducedMotion.matches) video.pause();
   else video.play().catch(updateMotionControl);
 }
-// Chrome's address-bar prerender loads the page out of sight, where it pauses
-// muted video and leaves it paused when the page is shown. Once the first
-// frame is on screen, reload the video so it starts like a normal visit.
-if (document.prerendering) {
-  document.addEventListener('prerenderingchange', () => requestAnimationFrame(() => {
-    video.load();
-    startVideo();
-  }), { once: true });
+// Address-bar preloading (Safari's top hit, Chrome's prerender) and background
+// tabs load the page out of sight, where the video can end up paused or
+// "playing" without drawing a frame. Once the page is on screen, reload the
+// video so it starts like a normal visit.
+if (document.visibilityState === 'hidden') {
+  document.addEventListener('visibilitychange', function onShown() {
+    if (document.visibilityState !== 'visible') return;
+    document.removeEventListener('visibilitychange', onShown);
+    requestAnimationFrame(() => {
+      video.load();
+      startVideo();
+    });
+  });
 } else {
   startVideo();
 }
